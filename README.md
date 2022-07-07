@@ -47,7 +47,10 @@ min-width: 100%;
 ```
 Long story short. You can find the [demo](https://chienhsiang-hung.github.io/embed-medium-blog-on-website/) here and how it looks on my site([Hung, Chien-Hsiang (chienhsiang-hung.github.io)](https://chienhsiang-hung.github.io/#portfolio)).
 
-## Scripts
+## How to use it
+Click [here](https://github.com/chienhsiang-hung/embed-medium-blog-on-website/fork) to fork or:
+
+### Scripts
 - CS
 	- [EmbeddingMedium.css](https://github.com/chienhsiang-hung/embed-medium-blog-on-website/blob/main/asset/cs/EmbeddingMedium.css)
 - JS
