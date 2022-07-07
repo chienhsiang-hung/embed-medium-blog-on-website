@@ -1,0 +1,30 @@
+.medium-card span {
+    padding: 8px 8px 8px 8px;
+}
+/* https://stackoverflow.com/questions/11552380/how-to-automatically-crop-and-center-an-image */
+.medium-card span img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover; /* https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit */
+    object-position: center; /* Center the image within the element */
+    min-height: 100%;
+    min-width: 100%;
+}
+
+#pagin {
+  display: flex;
+  justify-content: center;
+}
+/* https://www.w3schools.com/howto/howto_css_pagination.asp */
+#pagin a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+}
+#pagin a.active {
+  background-color: dodgerblue;
+  color: white;
+}
+#pagin a:hover:not(.active) {background-color: #ddd;}
