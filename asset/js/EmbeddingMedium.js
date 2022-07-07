@@ -1,3 +1,5 @@
+// contact https://chienhsiang-hung.github.io/ if you have any questions 
+
 $(function () {
     var mediumPromise = new Promise(function (resolve) {
         var $content = $('#jsonContent');
