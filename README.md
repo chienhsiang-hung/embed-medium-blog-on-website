@@ -1,7 +1,7 @@
 # embed-medium-blog-on-website
 > This is a free and simple guide through that you can finally **embed your medium grid to your website by yourself** without worrying about your personal info being packed by 3rd party APIs.
 
-![](https://miro.medium.com/max/1400/1*2fLUh2aCOVMF_iAhwskHdQ.png)
+![](https://miro.medium.com/max/1400/1*mD5ZD3x-xBUjgBcQnl6bcg.png)
 
 After a tedious search for tools to embed the medium to a specific website, I figured that I have to write my own because you don't trust any random API to do it for you nowadays, especially when you need to hand in your personal info.
 So that's it. I write and build this to help anyone like I was struggling on achieving it.
