@@ -18,6 +18,7 @@ trimmedString = trimmedString.substr(0, Math.min(trimmedString.length, trimmedSt
 display += `<p class="card-text">${trimmedString}...</p>`;
 ```
 The modifying description part would face problems especially when there are elements other than text that happened to show within the first 120 texts. I've removed it and replaced it with categories in RSS.
+(use http://jsonviewer.stack.hu/ to check json file easier)
 ```javascript
 display += ' <p>'
 var categories = item["categories"];
@@ -68,3 +69,4 @@ Put the scripts in the folder along with index.html
 	<div class="row" id="jsonContent"></div>
 	<div id="pagin"></div>
 </div>
+```
