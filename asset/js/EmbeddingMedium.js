@@ -1,6 +1,10 @@
 // contact https://chienhsiang-hung.github.io/ if you have any questions 
 
 $(function () {
+    /* Sometimes it's also useful to use window.innerWidth (not typically found on mobile devices) instead of screen width 
+    when dealing with desktop browsers where the window size is often less than the device screen size. */
+    var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+
     var mediumPromise = new Promise(function (resolve) {
         var $content = $('#jsonContent');
         var data = {rss: 'https://medium.com/feed/@hungchienhsiang'};
@@ -12,6 +16,8 @@ $(function () {
             function (response) {
                 if (response.status == 'ok') {
                     var display = '';
+                    // let number of card responsive
+                    var TotalCard = (width < 768) ? 5 : 8;
                     $.each(
                         response.items,
                         function (k, item) {
@@ -34,7 +40,7 @@ $(function () {
                             display += `    <a href="${item.link}" target="_blank" class="btn btn-outline-success" >Read More</a>`;
                             display += `  </div>
                                         </div>`;
-                            return k < 10;
+                            return k < TotalCard;
                         }
                     );
                     resolve($content.html(display));
@@ -44,8 +50,8 @@ $(function () {
     });
     
     mediumPromise.then(function() {
-        //Pagination
-        pageSize = 3;
+        // make Pagination reponsive
+        pageSize = (width < 768) ? 1 : 3;
         var pageCount = $(".medium-card").length / pageSize;
         for (var i = 0; i < pageCount; i++) {
             $("#pagin").append(`<a class="page-link" href="#">${(i + 1)}</a>`);
