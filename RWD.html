@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<style>
+/* contact https://chienhsiang-hung.github.io/ if you have any questions */
+
+.medium-card span {
+  padding: 8px 8px 8px 8px;
+}
+/* https://stackoverflow.com/questions/11552380/how-to-automatically-crop-and-center-an-image */
+.medium-card img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover; /* https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit */
+  object-position: center; /* Center the image within the element */
+  min-height: 100%;
+  min-width: 100%;
+}
+.medium-card img {
+transition: all 0.5s;
+}
+.medium-card:hover img {
+transform: scale(1.2);
+}
+
+#pagin {
+display: flex;
+justify-content: center;
+}
+/* https://www.w3schools.com/howto/howto_css_pagination.asp */
+#pagin a {
+color: black;
+float: left;
+padding: 8px 16px;
+text-decoration: none;
+transition: background-color .3s;
+}
+#pagin a.active {
+background-color: dodgerblue;
+color: white;
+}
+#pagin a:hover:not(.active) {background-color: #ddd;}
+</style>
+
+</head>
+
+<body>
+
+<div>
+    <!-- EmbeddingMedium -->
+    <div class="row" id="jsonContent"></div>
+    <div id="pagin"></div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<p><a href="https://github.com/chienhsiang-hung/embed-medium-blog-on-website">embed-medium-blog-on-website</a> demo</p>
+<p>contact <a href="https://chienhsiang-hung.github.io/">https://chienhsiang-hung.github.io/</a> if you have any questions</p>
+<script>
+// contact https://chienhsiang-hung.github.io/ if you have any questions 
+
+$(function () {
+    /* Sometimes it's also useful to use window.innerWidth (not typically found on mobile devices) instead of screen width 
+    when dealing with desktop browsers where the window size is often less than the device screen size. */
+    var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+
+    var mediumPromise = new Promise(function (resolve) {
+        var $content = $('#jsonContent');
+        var data = {rss: 'https://medium.com/feed/@hungchienhsiang'};
+
+        // use http://jsonviewer.stack.hu/ to check json file easier
+        $.get(
+            'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fmedium.com%2Ffeed%2F%40hungchienhsiang',
+            data,
+            function (response) {
+                if (response.status == 'ok') {
+                    var display = '';
+                    // let number of card responsive
+                    var TotalCard = (width < 768) ? 5 : 8;
+                    $.each(
+                        response.items,
+                        function (k, item) {
+                            display += `<div class="card medium-card mb-3 mx-auto mr-5" style="width: 20rem;">`;
+                            var src = item["thumbnail"]; // use thumbnail url
+                            display += `  <span>
+                                            <img src="${src}" class="card-img-top" alt="Cover image">
+                                          </span>`;
+                            display += `  <div class="card-body">`;
+                            display += `    <h5 class="card-title">${item.title}</h5>`;
+                            
+                            // add categories
+                            display += '    <p>'
+                            var categories = item["categories"];
+							for (var i=0; i<categories.length; i++){
+                            	display += `  <a href="#"><i>#${categories[i]}</i></a> &nbsp;`
+                            }
+							display += '    </p>'
+                            
+                            display += `    <a href="${item.link}" target="_blank" class="btn btn-outline-success" >Read More</a>`;
+                            display += `  </div>
+                                        </div>`;
+                            return k < TotalCard;
+                        }
+                    );
+                    resolve($content.html(display));
+                }
+            }
+        );
+    });
+    
+    mediumPromise.then(function() {
+        // make Pagination reponsive
+        pageSize = (width < 768) ? 1 : 3;
+        var pageCount = $(".medium-card").length / pageSize;
+        for (var i = 0; i < pageCount; i++) {
+            $("#pagin").append(`<a class="page-link" href="#">${(i + 1)}</a>`);
+        }
+
+        $("#pagin a:nth-child(1)").addClass("active");
+        showPage = function (page) {
+            $(".medium-card").hide();
+            $(".medium-card").each(function (n) {
+                if (n >= pageSize * (page - 1) && n < pageSize * page)
+                    $(this).show();
+            });
+        }
+
+        showPage(1);
+
+        $("#pagin a").click(function () {
+            $("#pagin a").removeClass("active");
+            $(this).addClass("active");
+            showPage(parseInt($(this).text()))
+            return false;
+        });
+    });
+  
+});
+</script>
+</body>
+</html>
