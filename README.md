@@ -1,6 +1,10 @@
 # Embed Medium Blog On Website w/ RWD
 
 In the last post [Embed Medium Blog On Website. This is a free and simple guide through… | by 洪健翔 Hung, Chien-hsiang | Jul, 2022 | Medium](https://hungchienhsiang.medium.com/embed-medium-blog-on-website-880dc0d75062), I've shown you how to embed your medium post into your website with Zero Cost and Absolute Customized. But it doesn't seem perfect enough, does it? So here we are, with some simple customization of adjustment, let's modernize your embedded medium post with some simple responsive web design technique.
+
+## How It Works
+[DEMO](https://chienhsiang-hung.github.io/embed-medium-blog-on-website/RWD)
+
 ### [CSS](https://github.com/chienhsiang-hung/embed-medium-blog-on-website/blob/RWD/asset/cs/EmbeddingMedium.css)
 ```css
 .medium-card span {
