@@ -21,6 +21,11 @@ $(function () {
                     $.each(
                         response.items,
                         function (k, item) {
+                            if ( [0, 3, 6].includes(k) ) {
+                                display +=`
+                                    <div class="mySlides slide-fade">
+                                `;
+                            };
                             display += `<div class="card medium-card mb-3 mx-auto mr-5" style="width: 20rem;">`;
                             var src = item["thumbnail"]; // use thumbnail url
                             display += `  <span>
@@ -40,6 +45,11 @@ $(function () {
                             display += `    <a href="${item.link}" target="_blank" class="btn btn-outline-success" >Read More</a>`;
                             display += `  </div>
                                         </div>`;
+                            if ( [2, 5, 8].includes(k)) {
+                                display +=`
+                                    </div>
+                                `;
+                            };
                             return k < TotalCard;
                         }
                     );
@@ -47,33 +57,5 @@ $(function () {
                 }
             }
         );
-    });
-    
-    mediumPromise.then(function() {
-        // make Pagination reponsive
-        pageSize = (width < 768) ? 1 : 3;
-        var pageCount = $(".medium-card").length / pageSize;
-        for (var i = 0; i < pageCount; i++) {
-            $("#pagin").append(`<a class="page-link" href="#">${(i + 1)}</a>`);
-        }
-
-        $("#pagin a:nth-child(1)").addClass("active");
-
-        showPage = function (page) {
-            $(".medium-card").hide();
-            $(".medium-card").each(function (n) {
-                if (n >= pageSize * (page - 1) && n < pageSize * page)
-                    $(this).show();
-            });
-        }
-        showPage(1);
-
-        $("#pagin a").click(function () {
-            $("#pagin a").removeClass("active");
-            $(this).addClass("active");
-            showPage(parseInt($(this).text()))
-            return false;
-        });
-    });
-  
+    });  
 });

@@ -81,12 +81,12 @@
         }
         
         /* Fading animation */
-        .fade {
+        .slide-fade {
           animation-name: fade;
           animation-duration: 1.5s;
         }
         
-        @keyframes fade {
+        @keyframes slide-fade {
           from {opacity: .4} 
           to {opacity: 1}
         }
@@ -100,11 +100,8 @@
 
 <body>
 
-<div>
-    <!-- EmbeddingMedium -->
-    <div class="row" id="jsonContent"></div>
-    <div id="pagin"></div>
-</div>
+<!-- embed Medium -->
+<div class="row" id="jsonContent"></div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="asset/js/EmbeddingMedium.js"></script>
@@ -114,19 +111,19 @@
 
 <div class="slideshow-container">
 
-    <div class="mySlides fade">
+    <div class="mySlides slide-fade">
       <div class="numbertext">1 / 3</div>
       <img src="https://cdn-images-1.medium.com/max/1024/1*mD5ZD3x-xBUjgBcQnl6bcg.png" style="width:100%">
       <div class="text">Caption Text</div>
     </div>
     
-    <div class="mySlides fade">
+    <div class="mySlides slide-fade">
       <div class="numbertext">2 / 3</div>
       <img src="https://cdn-images-1.medium.com/max/1024/1*mD5ZD3x-xBUjgBcQnl6bcg.png" style="width:100%">
       <div class="text">Caption Two</div>
     </div>
     
-    <div class="mySlides fade">
+    <div class="mySlides slide-fade">
       <div class="numbertext">3 / 3</div>
       <img src="https://cdn-images-1.medium.com/max/1024/1*mD5ZD3x-xBUjgBcQnl6bcg.png" style="width:100%">
       <div class="text">Caption Three</div>

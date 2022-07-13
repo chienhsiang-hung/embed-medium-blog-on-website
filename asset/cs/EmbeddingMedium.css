@@ -1,5 +1,8 @@
 /* contact https://chienhsiang-hung.github.io/ if you have any questions */
 
+.medium-card {
+  display: inline-block;
+}
 .medium-card span {
   padding: 8px 8px 8px 8px;
 }
@@ -13,10 +16,10 @@
   min-width: 100%;
 }
 .medium-card img {
-transition: all 0.5s;
+  transition: all 0.5s;
 }
 .medium-card:hover img {
-transform: scale(1.2);
+  transform: scale(1.2);
 }
 
 #pagin {
