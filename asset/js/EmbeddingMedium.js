@@ -23,7 +23,7 @@ $(function () {
                         function (k, item) {
                             if ( [0, 3, 6].includes(k) ) {
                                 display +=`
-                                    <div class="mySlides slide-fade">
+                                    <div class="mySlides slide-fade row" style="justify-content: space-around;">
                                 `;
                             };
                             display += `<div class="card medium-card mb-3 mx-auto mr-5" style="width: 20rem;">`;
