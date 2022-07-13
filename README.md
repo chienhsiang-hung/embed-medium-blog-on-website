@@ -4,6 +4,7 @@ In the last post [Embed Medium Blog On Website. This is a free and simple guide 
 
 ## How It Works
 [DEMO](https://chienhsiang-hung.github.io/embed-medium-blog-on-website/RWD)
+![](https://user-images.githubusercontent.com/77676044/178748070-b0a9653a-de83-49ca-ac99-ce76da47d92d.png)
 ---
 ### [CSS](https://github.com/chienhsiang-hung/embed-medium-blog-on-website/blob/RWD/asset/cs/EmbeddingMedium.css)
 ```css
