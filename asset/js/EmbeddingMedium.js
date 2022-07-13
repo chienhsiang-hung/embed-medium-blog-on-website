@@ -58,6 +58,7 @@ $(function () {
         }
 
         $("#pagin a:nth-child(1)").addClass("active");
+
         showPage = function (page) {
             $(".medium-card").hide();
             $(".medium-card").each(function (n) {
@@ -65,7 +66,6 @@ $(function () {
                     $(this).show();
             });
         }
-
         showPage(1);
 
         $("#pagin a").click(function () {
