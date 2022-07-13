@@ -4,7 +4,7 @@ In the last post [Embed Medium Blog On Website. This is a free and simple guide 
 
 ## How It Works
 [DEMO](https://chienhsiang-hung.github.io/embed-medium-blog-on-website/RWD)
-
+---
 ### [CSS](https://github.com/chienhsiang-hung/embed-medium-blog-on-website/blob/RWD/asset/cs/EmbeddingMedium.css)
 ```css
 .medium-card span {
