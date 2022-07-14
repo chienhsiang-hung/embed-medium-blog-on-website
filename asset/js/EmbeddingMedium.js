@@ -23,10 +23,10 @@ $(function () {
                         function (k, item) {
                             if ( [0, 3, 6].includes(k) ) {
                                 display +=`
-                                    <div class="mySlides slide-fade row" style="justify-content: space-around;">
+                                    <div class="mySlides slide-fade row" style="width:100%;">
                                 `;
                             };
-                            display += `<div class="card medium-card mb-3 mx-auto mr-5" style="width: 20rem;">`;
+                            display += `<div class="card mb-3 mx-auto mr-5" style="width:20rem; display:block;">`;
                             var src = item["thumbnail"]; // use thumbnail url
                             display += `  <span>
                                             <img src="${src}" class="card-img-top" alt="Cover image">
@@ -53,7 +53,8 @@ $(function () {
                             return k < TotalCard;
                         }
                     );
-                    resolve($content.html(display));
+                    
+                    resolve($content.html(display + document.getElementById('jsonContent').innerHTML));
                 }
             }
         );
